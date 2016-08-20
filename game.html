@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal Collector</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Indie+Flower" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>
+            Crystal Collector
+        </h1>
+
+    </div>
+
+
+    <div class="directions">
+        <div class="row panel panel-default">
+            <p class="text-justify">  &#9758; You will be given a random number at the start of the game.<br><br>
+                &#9758; There are four crystals below.
+                Every time you select a crystal, you will add a specific number of points to your score.
+                <br><br> &#9758; In order to win, you will need to match your total score with the random number that you were given in the beginning of the game.
+                <br><br> &#9758; The value of each crystal will be static during the game.
+                At the end of the game values will be randomized again! <br><br> &#9758; Good luck!
+            </p></div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4 panel panel-default ">
+            <div class ="randomNumberTitle"> <h2>Random Number:</h2> </div>
+            <p><span id="randomNumber" ></span></p>
+
+        </div>
+        <div class="col-md-4 col-md-offset-4 panel panel-default">
+            <div class="gameScore"> <h2> Game Score:</h2>
+                <div> <h3>wins: </h3> <p><span id="wins" ></span></p> </div>
+                <div><h3>losses:  <span id="losses" ></span></h3>  </div>
+            </div></div>
+    </div>
+
+
+    <div class="row">
+        <div class="panel panel-default ">
+
+            <div class="crystalTitle" > <h2> Choose your crystals below!</h2>
+
+                <div class="crystals">
+
+
+
+                    <img src="http://wonderworlds.org/images/crystal_fantasy/fantasy-crystal2.jpg" class="img-thumbnail crystalImage blue" >
+
+                    <img src="http://wonderworlds.org/images/crystal_fantasy/fantasy-crystal-very-green.jpg" class="img-thumbnail crystalImage yellow" >
+
+                    <img src="http://wonderworlds.org/images/crystal_fantasy/fantasy-crystal-gold.jpg" class="img-thumbnail crystalImage orange">
+
+                    <img src="http://wonderworlds.org/images/crystal_fantasy/green-fantasy-crystal.jpg" class="img-thumbnail crystalImage teal">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="panel panel-default ">
+            <div class="currentPointsTitle"> <h2> Your current point score: </h2>
+
+
+                <p><span id="pointDisplay"></span></p>
+
+            </div></div>
+    </div>
+
+</div>
+
+
+<center/><a style="color: black;" href="http://StarFields.org"> Crystals images : Copyright Silvia Hartmann, All Rights Reserved.</a></center>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+
+
+    $( document ).ready(function() {
+
+        var totalPoints=0;
+        $("#pointDisplay").html(totalPoints);
+        var randomNumber =Math.floor(Math.random() * (121-19)+19);
+        $('#randomNumber').text(randomNumber);
+        var wins = 0 ;
+        var losses = 0 ;
+        var blue = Math.floor(Math.random() * (13 - 1) + (1));
+        var yellow = Math.floor(Math.random() * (13 - 1) + (1));
+        var orange = Math.floor(Math.random() * (13 - 1) + (1));
+        var teal = Math.floor(Math.random() * (13 - 1) + (1));
+
+
+
+
+// 4 separate onclick functions
+
+        $(".blue").click(function () {
+            userSum(blue);
+            console.log(blue);
+
+
+        });
+
+        $(".yellow").click(function () {
+
+            userSum(yellow);
+            console.log(yellow);
+
+
+        });
+        $(".orange").click(function () {
+            userSum(orange);
+
+
+            console.log(orange);
+
+
+        });
+        $(".teal").click(function () {
+
+            userSum(teal);
+
+            console.log(teal);
+
+
+        });
+
+
+        function reset() {
+            randomNumber = Math.floor(Math.random() * (121-19)+19);
+            $('#randomNumber').text(randomNumber);
+            blue = Math.floor(Math.random() * (13 - 1) + (1));
+            yellow = Math.floor(Math.random() * (13 - 1) + (1));
+            orange = Math.floor(Math.random() * (13 - 1) + (1));
+            teal = Math.floor(Math.random() * (13 - 1) + (1));
+            totalPoints = 0;
+            $("#pointDisplay").html(totalPoints);
+
+
+        }
+
+        function userSum (crystalNumber) {
+        totalPoints += crystalNumber;
+
+        $("#pointDisplay").html(totalPoints);
+
+        if (totalPoints>randomNumber){
+
+            alert(":(");
+            losses++;
+            $('#losses').html(losses);
+
+            reset();
+
+        } else if (totalPoints == randomNumber)
+        {
+
+            alert("You Win!!");
+            wins++;
+            $('#wins').html(wins);
+
+            reset();
+        }
+
+
+    }
+
+
+
+
+    });
+</script>
+</body>
+</html>
+
+<style>
+
+
+    body{
+
+
+        background-image: url("https://s-media-cache-ak0.pinimg.com/564x/72/a1/69/72a1691697fd9173e0d110742da04515.jpg");
+
+    }
+
+    h2{
+        font-family: 'Indie Flower', cursive;
+    }
+
+    p{
+        font-size: xx-large;
+        margin: 5% 8% 5% 8%;
+        font-family: 'Indie Flower', cursive;
+
+    }
+
+    .crystalTitle{
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+
+
+    .crystals img {
+        width: 23%;
+        height: auto;
+    }
+
+    .jumbotron{
+        font-family: 'Bungee Shade', cursive;
+        background-color: white;
+
+    }
+
+    .randomNumberTitle{
+        margin-left:5%;
+    }
+    .randomNumber{
+        margin-left: 5%;
+        font-family: 'Indie Flower', cursive;
+    }
+    .gameScore{
+        margin-left: 5%;
+        font-family: 'Indie Flower', cursive;
+    }
+
+    .currentPointsTitle{
+        margin-left: 5%;
+    }
+</style>
