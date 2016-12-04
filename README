@@ -1,0 +1,1 @@
+Interactive game where player clicks on a crystal, it will add a specific amount of points to the player's total score. When this score matches the random number the player wins. If the score goes over the random number the player will lose. 
