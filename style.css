@@ -1,0 +1,51 @@
+body{
+
+
+    background-image: url("https://s-media-cache-ak0.pinimg.com/564x/72/a1/69/72a1691697fd9173e0d110742da04515.jpg");
+
+}
+
+h2{
+    font-family: 'Indie Flower', cursive;
+}
+
+p{
+    font-size: x-large;
+    margin: 5% 8% 5% 8%;
+    font-family: 'Indie Flower', cursive;
+
+}
+
+.crystalTitle{
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+
+.crystals img {
+    width: 23%;
+    height: 215px;
+    cursor: pointer;
+}
+
+.jumbotron{
+    font-family: 'Bungee Shade', cursive;
+    background-color: white;
+
+}
+
+.randomNumberTitle{
+    margin-left:5%;
+}
+.randomNumber{
+    margin-left: 5%;
+    font-family: 'Indie Flower', cursive;
+}
+.gameScore{
+    margin-left: 5%;
+    font-family: 'Indie Flower', cursive;
+}
+
+.currentPointsTitle{
+    margin-left: 5%;
+}
